@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 
-"""type annotated function"""
+"""Type annotated function"""
 
 from typing import List, Union
 
 
 def sum_mixed_list(mxd_lst: List[Union[float, int]]) -> float:
     """
-    this function takes a mixed list of either float
+    This function takes a mixed list of either float
     or integer values and returns their sum (type float)
     """
     sum: float = 0
