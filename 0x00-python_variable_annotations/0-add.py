@@ -2,7 +2,7 @@
 """type annotatated function"""
 
 
-def add(a: int, b: int) -> float:
+def add(a: float, b: float) -> float:
     """
     This function takes in two variables of type int
     and returns a sum of type float
