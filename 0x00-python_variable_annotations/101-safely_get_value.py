@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from types import NoneType
 from typing import Mapping, Any, Union, TypeVar
 
 
