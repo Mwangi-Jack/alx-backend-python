@@ -2,8 +2,6 @@
 """executing multiple coroutines at the same time -concurrency"""
 
 import asyncio
-
-
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
