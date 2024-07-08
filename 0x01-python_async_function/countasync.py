@@ -2,18 +2,22 @@
 # countasync.py
 
 import asyncio
+import random
 
-async def count():
-    print("One")
-    await asyncio.sleep(1)
-    print("Two")
+async def count(delay):
+    await asyncio.sleep(delay)
+    print("Count", delay)
+    return delay
 
 async def main():
-    await asyncio.gather(count(), count(), count())
+    li = [count(random.uniform(0, 4)) for _ in range(4)]
+
+    delays = []
+    for task in asyncio.as_completed(li):
+        result = await task
+        delays.append(result)
+
+    print(delays)
 
 if __name__ == "__main__":
-    import time
-    s = time.perf_counter()
     asyncio.run(main())
-    elapsed = time.perf_counter() - s
-    print(f"{__file__} executed in {elapsed:0.2f} seconds.")
