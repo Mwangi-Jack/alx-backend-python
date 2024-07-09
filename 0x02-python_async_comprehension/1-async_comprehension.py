@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Asyn Comprehension"""
 
 from typing import List
 
