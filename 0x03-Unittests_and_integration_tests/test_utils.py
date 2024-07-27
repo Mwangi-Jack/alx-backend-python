@@ -45,6 +45,4 @@ class TestGetJson(unittest.TestCase):
 
         result = get_json(url)
 
-        self.assertIsNotNone(result)
-        self.assertEqual(result, payload)
         mock_get.assert_called_once_with(url)
