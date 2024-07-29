@@ -94,7 +94,6 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         cls.get_patcher = patch('requests.get', autospec=True)
         cls.mock_get = cls.get_patcher.start()
 
-        # Set the side_effect for the mock
         def get_json_mock(url):
             if url == GithubOrgClient.ORG_URL.format(org='google'):
                 return cls.org_payload
