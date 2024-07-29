@@ -2,10 +2,10 @@
 """Test client"""
 
 import unittest
-import requests
 from unittest.mock import patch, PropertyMock, Mock
+import requests
 from fixtures import TEST_PAYLOAD
-from parameterized import parameterized, parameterized_class # type: ignore
+from parameterized import parameterized, parameterized_class
 from client import GithubOrgClient
 
 
@@ -81,11 +81,16 @@ class TestGithubOrgClient(unittest.TestCase):
         self.assertEqual(result, expected_value)
 
 
-@parameterized_class(('org_payload', 'repos_payload', 'expected_repos', 'apache2_repos'), TEST_PAYLOAD)
+@parameterized_class(('org_payload', 'repos_payload',
+                      'expected_repos', 'apache2_repos'), TEST_PAYLOAD)
 class TestIntegrationGithubOrgClient(unittest.TestCase):
+    """This class defines the methods to test GithubOrgClient intergration"""
     @classmethod
     def setUpClass(cls):
-        """Set up mock for requests.get and configure the return values based on the URL"""
+        """
+        Set up mock for requests.get and configure the return
+        values based on the URL
+        """
         cls.get_patcher = patch('requests.get', autospec=True)
         cls.mock_get = cls.get_patcher.start()
 
@@ -117,6 +122,6 @@ class TestIntegrationGithubOrgClient(unittest.TestCase):
         repos = client.public_repos(license='apache-2.0')
         self.assertEqual(repos, self.apache2_repos)
 
+
 if __name__ == '__main__':
     unittest.main()
-
