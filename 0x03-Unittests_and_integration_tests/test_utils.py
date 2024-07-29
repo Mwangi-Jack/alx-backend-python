@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Unittesting"""
+"""Unittests and Intergration Tests"""
 
 import unittest
 from unittest.mock import patch, Mock
