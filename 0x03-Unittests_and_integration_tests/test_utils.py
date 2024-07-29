@@ -62,7 +62,5 @@ class TestGetJson(unittest.TestCase):
 #                 return self.a_method
 
 
-
-
 if __name__ == '__main__':
     unittest.main()
