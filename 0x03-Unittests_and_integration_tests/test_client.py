@@ -31,14 +31,18 @@ class TestGithubOrgClient(unittest.TestCase):
         """
         This method tests the _public_repos_url method of the client
         """
-        expected_org = {'repos_url': 'https://api.github.com/orgs/google/repos'}
+        expected_org = {
+            'repos_url': 'https://api.github.com/orgs/google/repos'
+            }
 
-        with patch.object(GithubOrgClient, 'org', new_callable=PropertyMock) as mock_org:
+        with patch.object(GithubOrgClient, 'org',
+                          new_callable=PropertyMock) as mock_org:
             mock_org.return_value = expected_org
             client = GithubOrgClient('google')
             result = client._public_repos_url
 
             self.assertEqual(result, expected_org['repos_url'])
+
 
 if __name__ == '__main__':
     unittest.main()
