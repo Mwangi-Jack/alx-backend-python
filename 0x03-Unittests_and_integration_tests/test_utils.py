@@ -39,7 +39,6 @@ class TestGetJson(unittest.TestCase):
         """Test for getting JSON"""
 
         mock_response = Mock()
-        mock_response.status_code = 200
         mock_response.json.return_value = payload
         mock_get.return_value = mock_response
         result = get_json(url)
