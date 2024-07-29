@@ -27,6 +27,17 @@ class TestGithubOrgClient(unittest.TestCase):
             f'https://api.github.com/orgs/{org}'
             )
 
+    def test_public_repos_url(self):
+        """
+        This method tests the _public_repos_url method of the client
+        """
+        expected_org = {'repos_url': 'https://api.github.com/orgs/google/repos'}
+
+        with patch.object(GithubOrgClient, 'org', return_value=expected_org):
+            client = GithubOrgClient('google')
+            result = client._public_repos_url
+
+            self.assertEqual(result, expected_org['repos_url'])
 
 if __name__ == '__main__':
     unittest.main()
